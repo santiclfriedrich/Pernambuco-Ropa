@@ -2,8 +2,10 @@ import React from 'react'
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import { Button } from '@mui/material';
+import CartWidget from '../CartWidget/CartWidget';
+import './NavBar.css';
+
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -37,14 +39,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
     width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch',
-      },
-    },
   },
 }));
 
@@ -62,11 +57,7 @@ function NavBar() {
               className="search-input"
             />
           </Search>
-          
-          <div className="cart-header">
-            <ShoppingBagIcon />
-            My Cart: (<span className="cart-count"> 0 </span>)
-          </div>
+          <CartWidget />
           </div>
         <div className="logo-header">
         <img src="logopernambuco.png"
@@ -75,7 +66,7 @@ function NavBar() {
         </div>
         <div className="menu-header">
             <ul className='navbar'>
-              <li><Button>Home</Button></li>
+              <li><Button className='button-header'>Home</Button></li>
               <li><Button>Shop</Button></li>
               <li><Button>Galeria</Button></li>
               <li><Button>Contacto</Button></li>

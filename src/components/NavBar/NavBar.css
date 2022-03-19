@@ -1,0 +1,24 @@
+/*-----------------HEADER---------------*/
+
+.searchCart-header{
+    display: flex;
+    padding-top: 5px;
+  }
+  
+  .logo-header{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .img-header{
+    width: 10%;
+  }
+  
+  .navbar{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+
+
+ 

@@ -1,0 +1,9 @@
+.container-cards{
+    display: flex;
+    justify-content: center;
+}
+
+.container-cards > h2{
+    font-weight: inherit;
+    font-family: 'Courier New', Courier, monospace;
+}
