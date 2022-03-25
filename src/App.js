@@ -1,21 +1,28 @@
-import React from 'react';
 import './App.css';
+import React, {useState, useEffect} from 'react'
 import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import Card from './components/Card/Card';
-
-
+import ListProducts from './components/ListProducts/ListProducts';
+import Container from '@mui/material/Container';
 
 function App() {
+  const [open, setOpen] = useState(false);
+
+function App() {
+    setOpen(true)
+  }
+
+
+
+
   return (
+    //JSX
+
     <div className="App">
-      <NavBar />
-      <ItemListContainer title='Pernambuco Favourites'>
-      </ItemListContainer>
-      <Card>
-      </Card>
-      
-      
+     <NavBar />
+      <Container className='container-general'> 
+        <ListProducts />
+      </Container>
     </div>
   );
 }

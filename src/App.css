@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital@1&family=Francois+One&display=swap');
+p,a,h1,h2,h3,h4,span {
+    font-family: 'Courier Prime', monospace;
+    font-weight: inherit;
+}
+
+.card-item {
+  
+  text-align: center;
+  
+}

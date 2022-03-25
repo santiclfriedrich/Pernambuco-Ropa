@@ -1,0 +1,6 @@
+.container-cards {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    text-align: center;
+}

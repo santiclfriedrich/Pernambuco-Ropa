@@ -1,0 +1,13 @@
+.card-item > img {
+    max-height: 470px;
+}
+
+.container-card-info {
+    float: left;
+    width: 100%;
+    padding: 10px;
+}
+
+.container-card-info p {
+    font-size: 15px;
+}

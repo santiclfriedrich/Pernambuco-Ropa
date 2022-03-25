@@ -20,5 +20,27 @@
     list-style: none;
   }
 
+  .navbar > li{
+    display: inline-block;
+  }
+
+  .navbar > li:hover{
+    background-color: #b6d5dd;
+  }
+
+  .navbar > li > a{
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 0 10px;
+    letter-spacing: 1px;
+  }
+
+ li > a:hover{
+   color: white;
+   transition: calc(1.4s);
+ }
+
+
 
  

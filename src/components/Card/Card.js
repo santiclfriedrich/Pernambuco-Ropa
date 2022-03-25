@@ -1,32 +1,27 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import './Card.css';
+import React,{ useState, useEffect } from 'react'
+import './Card.css'
 import ItemCount from '../ItemCount/ItemCount'
 
-export default function MediaCard() {
-    return (
-      <Card sx={{ maxWidth: 345 }}>
-        <CardMedia
-          component="img"
-          height="300"
-          image="../remera-black.png"
-          alt="remera negra"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            Remera Negra
-          </Typography>
-        </CardContent>
-        <CardActions>
-          < ItemCount></ItemCount>
-          <Button>Comprar</Button>
-        </CardActions>
-        
-      </Card>
-    );
-  }
+export default function Card({ data }) {
+    const { title, price, size, stock, image } = data
+    const [ count, setCount ] = useState(1)
+    const [ countTest, setCountTest ] = useState(1)
+
+    const addStock = () => {
+        setCount(count + 1)
+    }
+    const removeStock = () => {
+        setCountTest(countTest - 1)
+    }
+    return(
+        <div className="card-item">
+            <img src={`./${image}`} alt={image} />
+            <div className='container-card-info'>
+                <h2>{title}</h2>
+                <p>Precio : $ {price}</p>
+                <p>Talle : {size}</p>
+                <button>Comprar</button>
+            </div>
+        </div>
+    )
+} 
