@@ -1,6 +1,5 @@
 import React,{ useState, useEffect } from 'react'
 import './Card.css'
-import ItemCount from '../ItemCount/ItemCount'
 
 export default function Card({ data }) {
     const { title, price, size, stock, image } = data
@@ -18,9 +17,7 @@ export default function Card({ data }) {
             <img src={`./${image}`} alt={image} />
             <div className='container-card-info'>
                 <h2>{title}</h2>
-                <p>Precio : $ {price}</p>
-                <p>Talle : {size}</p>
-                <button>Comprar</button>
+                <p>$ {price} ARS</p>
             </div>
         </div>
     )

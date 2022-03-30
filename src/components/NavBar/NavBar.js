@@ -24,6 +24,9 @@ function NavBar() {
               <li><a>Contacto</a></li>
             </ul>
         </div>
+        <div className='title-header'>
+            <h2>Pernambuco Favourities</h2>
+        </div>
       </header>
     )
 }

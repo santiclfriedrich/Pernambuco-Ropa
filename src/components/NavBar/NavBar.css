@@ -41,6 +41,12 @@
    transition: calc(1.4s);
  }
 
+ .title-header >  h2{
+   text-align: center;
+   font-weight: 700;
+   
+ }
+
 
 
  

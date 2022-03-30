@@ -1,7 +1,7 @@
-.card-item > img {
+.product > img {
     max-height: 470px;
 }
 
-.container-card-info p {
+.container-product p {
     font-size: 15px;
 }
