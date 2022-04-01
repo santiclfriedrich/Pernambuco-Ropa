@@ -1,61 +1,48 @@
 import React,{useState, useEffect} from 'react';
 import Card from '../Card/Card';
 import './ListProducts.css'
+import mockProductos from '../../utils/ProductsMock'
+import { useParams } from 'react-router-dom'
 
-const ListProducts = () => {
-    const mockProductos = [{
-        title : 'Remera Negra',
-        id: 1,
-        size: 'M',
-        price: 2700,
-        image: 'remera-black.png',
-        stock: 7
-    },
-    {
-        title : 'Gorra Marron',
-        id: 2,
-        size: '-',
-        price: 4350,
-        image: 'gorra-marron.png',
-        stock: 4
-    },
-    {
-        title : 'Cargo Pants',
-        id: 3,
-        size: 'L',
-        price: 7800,
-        image: 'cargo-pants.png',
-        stock: 2
-    }
-]
+const ListProducts = ({children}) => {
+    
+    const { category } = useParams()
+    const [contador, setContador] = useState(0)
 
-    const [items, setItems] = useState([])
+    const [products, setProducts] = useState([])
 
-    const getItems = () => {
+    const getProducts = () => {
         return new Promise((resolve, reject) => {
-            setTimeout( () => {
-                resolve(mockProductos);
-            }, 2000);
-
-        }) ;
-    } ;
+            return resolve(mockProductos)
+        })
+    } 
 
     useEffect( () => {
-        getItems().then( (productos) => {
-            setItems(productos)
-        }).finally( () => {
-            console.log("fin de llamada")
+        setProducts([])
+        getProducts().then( (productos) => {
+            category ? filterProductByCategory(productos, category) : setProducts(productos)
         })
-    }, [])
+    }, [category])
+
+
+    const filterProductByCategory = (array , category) => {
+        return array.map( (product, i) => {
+            if(product.category === category) {
+               return setProducts(products => [...products, product]);
+            }
+        })
+    }
+
+    const agregarClick = (e, nombre) => {
+        e.stopPropagation()
+        console.log("Nombre desde el hijo:", nombre)
+        setContador(contador + 1)
+    }
 
     return(
         <div className="container-cards">
-            {items.map( ( item ) => {
-                const {id} = item
-                return(
-                    <Card data={item} key={id}/>
-                ) 
-            })}
+            {console.log("products: ", products)}
+            {products.map( ( product ) =>  <Card data={product} key={product.id} action={agregarClick}/>)}
         </div>
     ) 
 }
