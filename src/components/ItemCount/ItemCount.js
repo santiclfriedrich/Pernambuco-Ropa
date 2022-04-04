@@ -4,10 +4,14 @@ const ItemCount = ({stock}) => {
     const [count, setCount] = useState(1)
 
     const onAdd = () => {
-        setCount(count + 1)
+        if (count < stock){
+            setCount(count + 1)
+        }
     }
     const removeStock = () => {
-        setCount(count - 1)
+        if (count <= stock && count > 1){
+            setCount(count - 1)
+        }
     }
     return(
         <div>

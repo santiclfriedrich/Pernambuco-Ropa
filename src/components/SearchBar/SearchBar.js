@@ -37,6 +37,7 @@ const Search = styled('div')(({ theme }) => ({
       width: '100%',
     },
   }));
+  
 
 const SearchBar = () => {
     
@@ -55,5 +56,6 @@ const SearchBar = () => {
       </div>
     )
 }
+
 
 export default SearchBar;

@@ -17,7 +17,7 @@ export default function DetailProducts({ data }) {
                 <p>$ {data.price} ARS</p>
                 <p>Talle: {data.size}</p>
                 <p>Stock: {data.stock}</p>
-                < ItemCount />
+                < ItemCount stock={data.stock}/>
                 <button>Agregar al carrito</button>
                 <button>Comprar</button>
                 <p>{data.message}</p>

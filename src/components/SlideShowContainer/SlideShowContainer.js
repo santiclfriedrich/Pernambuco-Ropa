@@ -9,39 +9,24 @@ import remerablack from '../../img/remera-black.png';
 const SlideShowContainer = () => {
 	return (
 		<main>
-			<Titulo>Productos Destacados</Titulo>
 			<Slideshow controles={true}>
 				<Slide>
-					<a href="https://www.falconmaters.com">
+					<a href="">
 						<img src={cargopants} alt=""/>
 					</a>
 				</Slide>
 				<Slide>
-					<a href="https://www.falconmaters.com">
+					<a href="">
 						<img src={gorramarron} alt=""/>
 					</a>
 				</Slide>
 				<Slide>
-					<a href="https://www.falconmaters.com">
+					<a href="">
 						<img src={remerablack} alt=""/>
 					</a>
 				</Slide>
 			</Slideshow>
 
-			<Titulo>Productos Destacados</Titulo>
-			<Slideshow controles={true} autoplay={true} velocidad="3000" intervalo="5000">
-				<Slide>
-					<a href="https://www.falconmaters.com">
-						<img src={cargopants} alt=""/>
-					</a>
-	
-				</Slide>
-				<Slide>
-					<a href="https://www.falconmaters.com">
-						<img src={gorramarron} alt=""/>
-					</a>
-				</Slide>
-			</Slideshow>
 		</main>
 	);
 }

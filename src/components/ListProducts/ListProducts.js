@@ -4,6 +4,7 @@ import './ListProducts.css'
 import mockProductos from '../../utils/ProductsMock'
 import { useParams } from 'react-router-dom'
 
+
 const ListProducts = ({children}) => {
     
     const { category } = useParams()
@@ -13,7 +14,9 @@ const ListProducts = ({children}) => {
 
     const getProducts = () => {
         return new Promise((resolve, reject) => {
-            return resolve(mockProductos)
+            setTimeout(() => {
+                resolve(mockProductos)
+            }, 3000)
         })
     } 
 
@@ -41,6 +44,9 @@ const ListProducts = ({children}) => {
 
     return(
         <div className="container-cards">
+            <div>
+                
+            </div>
             {console.log("products: ", products)}
             {products.map( ( product ) =>  <Card data={product} key={product.id} action={agregarClick}/>)}
         </div>

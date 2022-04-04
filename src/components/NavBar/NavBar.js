@@ -23,7 +23,7 @@ function NavBar(props) {
       },
       {
         title:'Contacto',
-        url: '/contact'
+        url: '/contacto'
       }
 
     ]
@@ -34,11 +34,13 @@ function NavBar(props) {
           <SearchBar></SearchBar>
           <CartWidget />
           </div>
+          <Link to={'/'}>
         <div className="logo-header">
         <img src="logopernambuco.png"
         className="img-header"
         />
         </div>
+        </Link>
         <div className="menu-header">
             <ul className='navbar'>
             <li>

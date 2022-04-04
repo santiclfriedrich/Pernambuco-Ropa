@@ -25,13 +25,13 @@ const DetailPage = () => {
         
         <Container className='general-container'>
             <div className='product'>
-            <img src={`../${product.image}`} alt="" />
+            <img src={`../${product.image}`} alt=""  />
             <div className='container-product'>
                 <h2>{product.title}</h2>
                 <p>$ {product.price} ARS</p>
                 <p>Talle: {product.size}</p>
                 <p>Stock: {product.stock}</p>
-                < ItemCount />
+                < ItemCount stock={product.stock}/>
                 <button>Agregar al carrito</button>
                 <button>Comprar</button>
                 <p>{product.message}</p>
