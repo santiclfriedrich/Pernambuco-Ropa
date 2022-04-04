@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import mockProductos from '../utils/ProductsMock'
 import ItemCount from '../components/ItemCount/ItemCount';
+import { Link } from 'react-router-dom'
 
 const DetailPage = () => {
     const { id, category } = useParams()
@@ -33,7 +34,7 @@ const DetailPage = () => {
                 <p>Stock: {product.stock}</p>
                 < ItemCount stock={product.stock}/>
                 <button>Agregar al carrito</button>
-                <button>Comprar</button>
+                <button>< Link to={`/cart`}>Comprar</Link></button>
                 <p>{product.message}</p>
                 <p>Hecho en Argentina x Pernambuco</p>
             </div>

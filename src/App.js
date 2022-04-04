@@ -13,6 +13,7 @@ import GalleryPage from './pages/Galeria';
 import ContactPage from './pages/Contacto';
 import DetailPage from './pages/Detail';
 import NotFoundPage from './pages/404NotFound';
+import CartPage from './pages/Cart';
 
 //import SlideShowContainer from './components/SlideShowContainer/SlideShowContainer';
 
