@@ -16,7 +16,7 @@ const ListProducts = ({children}) => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve(mockProductos)
-            }, 3000)
+            }, 2000)
         })
     } 
 

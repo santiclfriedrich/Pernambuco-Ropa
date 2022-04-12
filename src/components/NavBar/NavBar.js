@@ -1,9 +1,10 @@
-import React from 'react';
+import {useState} from 'react';
 import { Button } from '@mui/material';
 import CartWidget from '../CartWidget/CartWidget';
 import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom'
 import './NavBar.css';
+
 
 function NavBar(props) {
 
@@ -68,9 +69,6 @@ function NavBar(props) {
                     )
                 })}
             </ul>
-        </div>
-        <div className='title-header'>
-            <h2>Pernambuco Favourites</h2>
         </div>
       </header>
     )

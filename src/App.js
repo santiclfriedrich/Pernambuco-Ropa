@@ -15,6 +15,9 @@ import DetailPage from './pages/Detail';
 import NotFoundPage from './pages/404NotFound';
 import CartPage from './pages/Cart';
 
+//context
+import {CartContextProvider} from './context/CartContext';
+
 //import SlideShowContainer from './components/SlideShowContainer/SlideShowContainer';
 
 function App() {
@@ -23,11 +26,13 @@ function App() {
     //JSX
 
     <div className="App">
+  
       <BrowserRouter>
-      
+      < CartContextProvider>
       <NavBar />   
 
       <Routes>
+        <Route path="/cart" element={<CartPage />}/>
         <Route path="/Contacto" element={< ContactPage />}/>
         <Route path="/Galeria" element={< GalleryPage />}/>
         <Route path="/Shop" element={< ShopPage />}/>
@@ -36,9 +41,9 @@ function App() {
         <Route path="/:category/:id" element={<DetailPage />}/>
         <Route path="*" element={<NotFoundPage />}/>
       </Routes>
-
+      </CartContextProvider>
       </BrowserRouter>
-      
+     
     </div>
   );
 }

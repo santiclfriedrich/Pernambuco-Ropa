@@ -1,24 +1,35 @@
 import React,{useState} from 'react'
 
-const ItemCount = ({stock}) => {
-    const [count, setCount] = useState(1)
+const ItemCount = ({stock, initial, onAdd}) => {
+    const [count, setCount] = useState(initial)
 
-    const onAdd = () => {
+    function onAddCount() {
         if (count < stock){
             setCount(count + 1)
         }
     }
-    const removeStock = () => {
-        if (count <= stock && count > 1){
+
+    function removeStock() {
+        if(count > initial ){
             setCount(count - 1)
-        }
+        }       
     }
+
+    const add = () => {
+       onAdd(count)
+   }
     return(
         <div>
+            <div>
             <button onClick={removeStock}>-</button>
             <p>{count}</p>
-            <button onClick={onAdd}>+</button>
+            <button onClick={onAddCount}>+</button>
+            </div>
+            <div>
+            <button onClick={add}> Agregar al carrito </button>
+            </div>
         </div>
+        
     )
 }
 
