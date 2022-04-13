@@ -3,6 +3,8 @@ import Card from '../Card/Card';
 import './ListProducts.css'
 import mockProductos from '../../utils/ProductsMock'
 import { useParams } from 'react-router-dom'
+import db from '../../firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
 
 const ListProducts = ({children}) => {
@@ -12,12 +14,22 @@ const ListProducts = ({children}) => {
 
     const [products, setProducts] = useState([])
 
-    const getProducts = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(mockProductos)
-            }, 2000)
-        })
+    const getProducts = async () => {
+        const itemsCollection = collection(db, 'productos')
+        const productosSnapshot = await getDocs(itemsCollection)
+        console.log("productosSnapshot : ", productosSnapshot)
+        const productList = productosSnapshot.docs.map((doc) => {
+
+            let product = doc.data()
+            product.id = doc.id
+            console.log("product:", product)
+            return product
+
+
+        }
+    )
+    return productList
+
     } 
 
     useEffect( () => {

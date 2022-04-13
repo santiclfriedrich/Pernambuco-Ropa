@@ -18,7 +18,6 @@ import CartPage from './pages/Cart';
 //context
 import {CartContextProvider} from './context/CartContext';
 
-//import SlideShowContainer from './components/SlideShowContainer/SlideShowContainer';
 
 function App() {
  

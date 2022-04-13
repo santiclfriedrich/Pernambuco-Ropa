@@ -11,7 +11,7 @@ const mockProductos = [{
 {
     title : 'Gorra Marron',
     id: 2,
-    size: '-',
+    size: 'adjustable',
     price: 4350,
     image: 'gorra-marron.png',
     stock: 4,

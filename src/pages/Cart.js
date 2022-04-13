@@ -1,6 +1,7 @@
 import Container from '@mui/material/Container';
 import { Link } from "react-router-dom"
 import { useCartContext } from '../context/CartContext';
+import './Cart.css'
 
 const CartPage = () => {
 
@@ -27,7 +28,7 @@ const CartPage = () => {
         {                    
             cartList.map((prod) =>(
                 <div key={ prod.id }>
-                    <div>
+                    <div className="cart-container">
                         <h2> {prod.title}</h2>
                         <img src={`../${prod.image}`} alt=""  />
                         <p> Precio: $ {prod.price}</p>

@@ -1,31 +1,40 @@
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import mockProductos from '../utils/ProductsMock'
 import ItemCount from '../components/ItemCount/ItemCount';
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../context/CartContext';
+import { doc, getDoc } from "firebase/firestore"
+import db from "../firebase"
 
 const DetailPage = () => {
-    const { id, category } = useParams()
+    const { id, } = useParams()
     const [product, setProduct] = useState({})
+    const navigate = useNavigate()
 
     const [ contador, setContador ] = useState(0)
     
     const { agregarAlCarrito } = useCartContext()
 
-    useEffect( () => {
-        filterProductById(mockProductos, id)
-    }, [id])
+    const getProduct = async() => {
+        const docRef = doc(db, "productos", id);
+        const docSnap = await getDoc(docRef);
 
-    const filterProductById = (array , id) => {
-        return array.map( (product) => {
-            if(product.id == id) {
-                return setProduct(product)
-            }
-        })
+        if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+            let product = docSnap.data()
+            product.id = docSnap.id
+            setProduct(product)
+          } else {
+            console.log("No such document!");
+            navigate('/error')
+          }
     }
+
+    useEffect( () => {
+        getProduct()
+    }, [id])
 
     function onAdd(cant){
         setContador(cant)
