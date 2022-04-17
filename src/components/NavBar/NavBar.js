@@ -3,10 +3,21 @@ import { Button } from '@mui/material';
 import CartWidget from '../CartWidget/CartWidget';
 import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom'
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import './NavBar.css';
 
 
 function NavBar(props) {
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+      setAnchorEl(null);
+  };
 
     const pages = [
 
@@ -43,29 +54,45 @@ function NavBar(props) {
         </div>
         </Link>
         <div className="menu-header">
-            <ul className='navbar'>
-            <li>
-                        <Button className="custom-btn">
-                            <Link to={'/remeras'}>Remeras</Link>
-                        </Button>     
-                    </li>
-                    <li>
-                        <Button className="custom-btn">
-                            <Link to={'/gorras'}>Gorras</Link>
-                        </Button>     
-                    </li>
-                    <li>
-                        <Button className="custom-btn">
-                            <Link to={'/pantalones'}>Pantalones</Link>
-                        </Button>     
-                    </li>
+        <ul className='navbar'> 
                 {pages.map((page) => {
                     return(
+                        page.title === 'Productos' ? (
                         <li>
-                            <Button className="custom-btn">
+                            <Button 
+                                aria-controls={open ? 'basic-menu' : undefined}
+                                aria-haspopup="true"
+                                aria-expanded={open ? 'true' : undefined}
+                                onClick={handleClick}
+                                >{page.title}</Button>
+                            <Menu
+                                id="basic-menu"
+                                anchorEl={anchorEl}
+                                open={open}
+                                onClose={handleClose}
+                                MenuListProps={{
+                                'aria-labelledby': 'basic-button',
+                                }}
+                            >
+                                <MenuItem onClick={handleClose}>
+                                    <Link to={'/remeras'}>Remeras</Link>
+                                </MenuItem>
+                                <MenuItem onClick={handleClose}>
+                                    <Link to={'/musculosas'}>Musculosas</Link>
+                                </MenuItem>
+                                <MenuItem onClick={handleClose}>
+                                    <Link to={'/jeans'}>Jeans</Link>
+                                </MenuItem>
+                            </Menu> 
+                        </li>
+                        ) : (
+                        <li>
+                            <Button className="custom-btn" variant="contained">
                                 <Link to={page.url}>{page.title}</Link>
                             </Button>
                         </li>
+                        )
+                        
                     )
                 })}
             </ul>

@@ -20,24 +20,31 @@
     list-style: none;
   }
 
+
   .navbar > li{
     display: inline-block;
   }
 
-  .navbar > li:hover{
+  header.main-header li button{
+    background-color: #edf2f1;
+    box-shadow: none;
+  }
+
+  header.main-header li button:hover{
     background-color: #b6d5dd;
   }
 
-  .navbar > li > a{
+  header.main-header li button a{
     color: black;
     font-weight: 700;
-    font-size: 20px;
-    padding: 0 10px;
+    font-size: 17px;
+    padding: 0 6px;
     letter-spacing: 1px;
+    text-decoration: none;
   }
 
- li > a:hover{
-   color: white;
+  header.main-header li button > a:hover{
+   color: #edf2f1;
    transition: calc(1.4s);
  }
 

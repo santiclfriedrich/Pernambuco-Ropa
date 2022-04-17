@@ -5,7 +5,10 @@ p,a,h1,h2,h3,h4,span {
 }
 
 .card-item {
-  
   text-align: center;
   
+}
+
+body{
+  background-color: #edf2f1;
 }

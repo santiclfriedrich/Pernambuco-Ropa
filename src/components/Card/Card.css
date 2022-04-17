@@ -1,7 +1,13 @@
-.card-item > img {
+.card-image *{
     max-height: 470px;
+}
+
+.container-card-info * {
+    text-decoration: none;
+    color: black;
 }
 
 .container-card-info p {
     font-size: 15px;
+
 }
