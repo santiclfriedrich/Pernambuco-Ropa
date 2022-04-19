@@ -11,7 +11,6 @@ export function CartContextProvider({ children }){
 
     const [cartList, setCartList] = useState([]);
 
-    console.log({cartList})
 
     function agregarAlCarrito(item){
         
@@ -41,8 +40,8 @@ export function CartContextProvider({ children }){
     }
 
 
-    const deleteOne = (id) => {
-        setCartList(cartList.filter(p => p.id !== id));
+    const deleteOne = (item) => {
+        setCartList(cartList.filter(p => p.id !== item.id));
     }
 
     const sumaTotal = () => {
