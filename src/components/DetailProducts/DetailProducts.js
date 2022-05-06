@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from 'react'
+import React from 'react'
 import './DetailProducts.css'
 import ItemCount from '../ItemCount/ItemCount'
 import Container from '@mui/material/Container';

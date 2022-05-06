@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import './NavBar.css';
 
 
-function NavBar(props) {
+function NavBar() {
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);

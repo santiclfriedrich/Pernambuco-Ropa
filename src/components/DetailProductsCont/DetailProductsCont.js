@@ -5,10 +5,10 @@ import mockProductos from '../../utils/ProductsMock'
 
 
 const DetailProductsCont = ({}) => {
-    const [dataProduct, setDataProduct] = useState({})
+    const [setDataProduct] = useState({})
 
     const getProduct = () => {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             setTimeout(() => {
                 resolve(mockProductos)
             }, 5000)
@@ -18,7 +18,6 @@ const DetailProductsCont = ({}) => {
     useEffect( () => {
         getProduct().then( (producto) => {
             setDataProduct(producto)
-            //console.log( Llamada al mock: producto)
         }).finally( () => {
             console.log("fin de llamada")
         })

@@ -11,7 +11,7 @@ import { addDoc, collection } from 'firebase/firestore';
 
 const CartPage = () => {
 
-  const { cartList, deleteOne, emptyCart, sumaTotal } = useCartContext()
+  const { cartList, deleteOne, sumaTotal } = useCartContext()
   const [openModal, setOpenModal] = useState(false)
   const [formData, setFormData] = useState({
       name: '',
@@ -46,7 +46,6 @@ const CartPage = () => {
   const pushOrder = async (prevOrder) => {
       const orderFirebase = collection(db, 'ordenes')
       const orderDoc = await addDoc(orderFirebase, prevOrder)
-      console.log("orden generada: ", orderDoc.id)
       setSuccessOrder(orderDoc.id)
       
   }
@@ -97,7 +96,7 @@ const CartPage = () => {
             })}
             
             <div className='cart-footer'>
-                <Link to='/'>
+                <Link to='/' className='continue-buy'>
                 <Button className='btn-custom'>Continuar comprando</Button>
                 </Link>
                 <div className='cart-checkout-details'>
@@ -105,11 +104,12 @@ const CartPage = () => {
                         <p>Total</p>
                         <span>$ {sumaTotal()}</span>
                     </div>
+                    <div className='finish-buy'>
                     <Button className='btn-custom' onClick={() => setOpenModal(true)}>Completar Compra</Button>
+                    </div>
                 </div>
             </div>
         </div>
-        {console.log("Order:", order)}
         <ModalCustom handleClose={() => setOpenModal(false)} open={openModal}>
             
             {successOrder ? (

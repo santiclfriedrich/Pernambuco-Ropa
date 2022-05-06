@@ -90,7 +90,23 @@
   font-size: 18px;
   text-transform: uppercase;
   font-weight: bold;
+  color: black;
 }
+
+.continue-buy button{
+  color: white;
+  background-color: black;
+}
+
+a.continue-buy{
+  text-decoration: none;
+}
+
+.finish-buy button{
+  color: white;
+  background-color: black;
+}
+
 
 .container-progress {
   display: flex;

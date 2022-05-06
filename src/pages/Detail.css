@@ -1,0 +1,17 @@
+.container-product {
+    float: right;
+    margin-top: 125px;
+    margin-right: 250px;
+}
+
+.counter div button{
+    color: white;
+    background-color: black;
+}
+
+.buy-buttons button{
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    background-color: black;
+}

@@ -21,7 +21,8 @@
     justify-content: center;
     list-style: none;
     position: relative;
-    bottom: 30px;
+    bottom: 24px;
+    border-bottom: 5px solid #121212;
   }
 
 

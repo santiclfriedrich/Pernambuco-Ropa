@@ -1,13 +1,12 @@
 import React,{useState, useEffect} from 'react';
 import Card from '../Card/Card';
 import './ListProducts.css'
-import mockProductos from '../../utils/ProductsMock'
 import { useParams } from 'react-router-dom'
 import db from '../../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 
 
-const ListProducts = ({children}) => {
+const ListProducts = ({}) => {
     
     const { category } = useParams()
     const [contador, setContador] = useState(0)
@@ -48,9 +47,8 @@ const ListProducts = ({children}) => {
         })
     }
 
-    const agregarClick = (e, nombre) => {
+    const agregarClick = (e) => {
         e.stopPropagation()
-        console.log("Nombre desde el hijo:", nombre)
         setContador(contador + 1)
     }
 
@@ -59,7 +57,6 @@ const ListProducts = ({children}) => {
             <div>
                 
             </div>
-            {console.log("products: ", products)}
             {products.map( ( product ) =>  <Card data={product} key={product.id} action={agregarClick}/>)}
         </div>
     ) 

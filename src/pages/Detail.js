@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { useCartContext } from '../context/CartContext';
 import { doc, getDoc } from "firebase/firestore"
 import db from "../firebase"
+import './Detail.css'
 
 const DetailPage = () => {
     const { id, } = useParams()
@@ -22,12 +23,10 @@ const DetailPage = () => {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-            console.log("Document data:", docSnap.data());
             let product = docSnap.data()
             product.id = docSnap.id
             setProduct(product)
           } else {
-            console.log("No such document!");
             navigate('/error')
           }
     }
@@ -58,12 +57,12 @@ const DetailPage = () => {
                         
                         ? 
                         
-                            <div className="mt-5 ms-5">
+                            <div className="mt-5 ms-5 counter">
                                 <ItemCount stock={product.stock} initial={1} onAdd={onAdd}/>
                             </div>
                         
                         : 
-                            <div className="mt-5">
+                            <div className="mt-5 buy-buttons">
                                 <Link to='/cart'>
                                     <button className="btn-sm btn-info mx-2">Finalizar</button>
                                 </Link>
